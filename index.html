@@ -22,17 +22,25 @@
     // 🧠 The function buildPeter builds an object of a certain shape and returns it.
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
-    function buildPeter() {
+    function buildPeter(firstName, lastName, age) {
+    let charName = {firstName: "Peter", lastName: "Pan", age: 12};
+    return charName
 
     }
+    buildPeter();
+    
+    
 
     // 👉 CHALLENGE 2
     // 🧠 The function buildUser takes three arguments and uses them to build an object and return it.
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
+      let user = {firstName, lastName, age};
+      return user
 
     }
+    buildUser("Jane", "Doe", 25);
 
     // 👉 CHALLENGE 3
     // 🧠 The function deletePrice takes an object as its argument and deletes its "price" property if it exists.
@@ -42,9 +50,17 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
+    function deletePrice(obj) {
+      if(obj.price !== undefined){
+        delete obj.price;
+      }else{
+        obj.priceless = true;
+      }
+      return obj
 
     }
+    
+    
 
     // 👉 CHALLENGE 4
     // 🧠 The function evenList takes an array as its argument and returns true if the array has an even number of elements, false otherwise.
@@ -53,6 +69,12 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
+      let numOfElements = arr.length;
+      let isEven = numOfElements % 2 === 0;
+      if(isEven){
+        return true;
+      }
+      return false;
 
     }
 
@@ -62,7 +84,13 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
+    function firstOrLast(arr, Boolean) {
+      let isTrue = Boolean === true;
+      if(isTrue){
+        return arr[0];
+      }else{
+        return arr[2];
+      }
 
     }
 
@@ -72,7 +100,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
+    function pushElement(arr, value) {
+      arr[arr.length] = value
+      return arr;
 
     }
 
@@ -88,7 +118,18 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
+    function stripX(str) {
+      let result = [];
+      let splitStr = str.split("");
+      for(let i in splitStr){
+        let char = splitStr[i]
+        if(char !== "x"){
+          result[result.length] = char
+        }
+
+      }
+      let joined = result.join("");
+      return joined;
 
     }
 
@@ -101,7 +142,17 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
+    function stripChar(str, char) {
+      let splitS = str.split("");
+      let result = [];
+      for(let i in splitS){
+        let character= splitS[i];
+        if(character !== char){
+          result[result.length] = character
+        }
+      }
+      return result.join("");
+
 
     }
 
@@ -114,7 +165,14 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
+    function getProps(obj) {
+      let result = [];
+      for(let key in obj){
+        if(key !== "age" && key !== 'married'){
+          result[result.length] = key
+        }
+      }
+      return result;
 
     }
 
